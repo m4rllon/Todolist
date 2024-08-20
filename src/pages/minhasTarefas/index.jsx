@@ -1,3 +1,9 @@
+import Tarefa from "../../components/tarefa";
+
 export default function MinhasTarefas() {
-  return <></>;
+  return (
+    <main>
+      <Tarefa />
+    </main>
+  );
 }
