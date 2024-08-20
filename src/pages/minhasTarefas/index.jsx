@@ -1,9 +1,9 @@
-import Tarefa from "../../components/tarefa";
+import ListaTarefas from "./listaDeTarefas";
 
 export default function MinhasTarefas() {
   return (
     <main>
-      <Tarefa />
+      <ListaTarefas />
     </main>
   );
 }
