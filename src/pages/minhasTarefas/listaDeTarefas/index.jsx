@@ -1,18 +1,25 @@
 import { CheckCircleIcon } from "@heroicons/react/24/outline";
-// import Tarefa from "../../../components/tarefa";
-import tarefas from "../../../mocks/tarefas";
+import listaDeTarefas from "../../../mocks/tarefas";
 import { formatDateWithMonthName } from "../../../utils/formatDate";
 import { getTasksCompletedNumber } from "../../../utils/getTasksCompletedNumber";
 import SecaoTarefas from "../../../components/secaoTarefas";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useTaskContext } from "../../../hooks/useTaskContext";
 
 export default function ListaTarefas() {
+  const { tasks, dispatch, adicionarTarefa, removerTarefa, editarTarefa } =
+    useTaskContext();
+
   const data = formatDateWithMonthName();
-  const completedNumber = getTasksCompletedNumber(tarefas);
+  const completedNumber = getTasksCompletedNumber(tasks);
 
   const [tasksCompleted, setTasksCompleted] = useState(
-    tarefas.filter((task) => task.status),
+    tasks.filter((task) => task.status),
   );
+
+  useEffect(() => {
+    setTasksCompleted(tasks.filter((task) => task.status));
+  }, [tasks]);
 
   return (
     <>
@@ -22,13 +29,17 @@ export default function ListaTarefas() {
         <div className="flex items-center gap-1">
           <CheckCircleIcon className="size-6" />
           <h1 className="text-2xl font-bold text-gray-500">
-            Completas: {completedNumber}/{tarefas.length}
+            Completas: {completedNumber}/{listaDeTarefas.length}
           </h1>
         </div>
       </span>
       <div>
-        <SecaoTarefas tarefas={tarefas} />
-        <SecaoTarefas tarefas={tasksCompleted} prevStatus={false} />
+        <SecaoTarefas secao={"Todas as tarefas"} tarefas={tasks} />
+        <SecaoTarefas
+          secao={"Finalizadas"}
+          tarefas={tasksCompleted}
+          prevStatus={false}
+        />
       </div>
     </>
   );

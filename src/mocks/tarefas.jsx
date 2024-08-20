@@ -1,5 +1,6 @@
 const tarefas = [
   {
+    id: 1,
     nome: "Nome",
     descricao: "Descrição",
     dataTermino: "Ago 25 2024",
@@ -9,6 +10,7 @@ const tarefas = [
     projetos: ["calculo 1", "calculo 2"],
   },
   {
+    id: 2,
     nome: "Nome 2",
     descricao: "Descrição 2",
     dataTermino: "Ago 25 2024",

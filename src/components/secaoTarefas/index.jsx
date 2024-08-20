@@ -3,7 +3,7 @@ import Tarefa from "../tarefa";
 
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/24/outline";
 
-export default function SecaoTarefas({ tarefas, prevStatus = true }) {
+export default function SecaoTarefas({ secao, tarefas, prevStatus = true }) {
   const [allTasks, setAllTasks] = useState(prevStatus);
   return (
     <>
@@ -16,13 +16,13 @@ export default function SecaoTarefas({ tarefas, prevStatus = true }) {
               <ChevronUpIcon className="size-6" />
             )}
           </button>
-          <p>Todas as tarefas</p>
+          <p>{secao}</p>
         </div>
         <hr className="border-gray-500 border-2 mx-2 my-2 w-[800px] flex" />
       </div>
       {allTasks &&
         tarefas.map((tarefa, index) => {
-          return <Tarefa key={index} {...tarefa} />;
+          return <Tarefa key={index} tarefa={tarefa} />;
         })}
     </>
   );
