@@ -5,7 +5,7 @@ import {
 } from "@heroicons/react/24/solid";
 import { useTaskContext } from "../../hooks/useTaskContext";
 
-export default function Tarefa({ tarefa }) {
+export default function Tarefa({ tarefa, operationDetect }) {
   const { removerTarefa } = useTaskContext();
   return (
     <div className="w-[50rem] my-5 px-5">
@@ -18,7 +18,7 @@ export default function Tarefa({ tarefa }) {
           <button>
             <ChatBubbleLeftIcon className="size-6" />
           </button>
-          <button>
+          <button onClick={() => operationDetect(tarefa, "EDIT")}>
             <PencilIcon className="size-6" />
           </button>
           <button onClick={() => removerTarefa(tarefa)}>
