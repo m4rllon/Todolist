@@ -9,10 +9,21 @@ TasksContext.displayName = "Tarefas";
 export const TasksProvider = ({ children }) => {
   const [tasks, dispatch] = useReducer(taskReducer, tarefas);
   const [taskTarget, setTaskTarget] = useState({});
+  const [operationSelect, setOperationSelect] = useState({
+    status: false,
+    opeName: "",
+  });
 
   return (
     <TasksContext.Provider
-      value={{ tasks, dispatch, taskTarget, setTaskTarget }}
+      value={{
+        tasks,
+        dispatch,
+        taskTarget,
+        setTaskTarget,
+        operationSelect,
+        setOperationSelect,
+      }}
     >
       {children}
     </TasksContext.Provider>

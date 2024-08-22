@@ -4,6 +4,7 @@ import {
   PencilIcon,
 } from "@heroicons/react/24/solid";
 import { useTaskContext } from "../../hooks/useTaskContext";
+import {formatDateForTaskCard} from '../../utils/formatDate';
 
 export default function Tarefa({ tarefa, operationDetect }) {
   const { removerTarefa } = useTaskContext();
@@ -27,7 +28,7 @@ export default function Tarefa({ tarefa, operationDetect }) {
         </div>
       </span>
       <p className="text-red-600 pl-3 text-xl my-2">
-        Termina em: {tarefa.dataTermino}
+        Termina em: {formatDateForTaskCard(tarefa.dataTermino)}
       </p>
       <hr className="border-black-700 border-2 mx-auto mb-2" />
     </div>

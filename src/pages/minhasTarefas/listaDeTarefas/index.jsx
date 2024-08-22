@@ -8,15 +8,12 @@ import { useTaskContext } from "../../../hooks/useTaskContext";
 import FormTarefa from "../../../components/formTarefa";
 
 export default function ListaTarefas() {
-  const { tasks, setTaskTarget } = useTaskContext();
+  const { tasks, setTaskTarget, operationSelect, setOperationSelect } =
+    useTaskContext();
 
   const data = formatDateWithMonthName();
   const completedNumber = getTasksCompletedNumber(tasks);
 
-  const [operationSelect, setOperationSelect] = useState({
-    status: false,
-    opeName: "",
-  });
   const [tasksCompleted, setTasksCompleted] = useState(
     tasks.filter((task) => task.status),
   );

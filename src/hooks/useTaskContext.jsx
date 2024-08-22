@@ -18,8 +18,14 @@ const editTaskAction = (newTask) => ({
 });
 
 export const useTaskContext = () => {
-  const { tasks, dispatch, taskTarget, setTaskTarget } =
-    useContext(TasksContext);
+  const {
+    tasks,
+    dispatch,
+    taskTarget,
+    setTaskTarget,
+    operationSelect,
+    setOperationSelect,
+  } = useContext(TasksContext);
 
   function adicionarTarefa(novaTarefa) {
     dispatch(addTaskAction(novaTarefa));
@@ -38,6 +44,8 @@ export const useTaskContext = () => {
     dispatch,
     taskTarget,
     setTaskTarget,
+    operationSelect,
+    setOperationSelect,
     adicionarTarefa,
     removerTarefa,
     editarTarefa,
