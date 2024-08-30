@@ -25,6 +25,10 @@ export const useTaskContext = () => {
     setTaskTarget,
     operationSelect,
     setOperationSelect,
+    tags, 
+    setTags,
+    projetos,
+    setProjetos,
   } = useContext(TasksContext);
 
   function adicionarTarefa(novaTarefa) {
@@ -46,6 +50,10 @@ export const useTaskContext = () => {
     setTaskTarget,
     operationSelect,
     setOperationSelect,
+    tags, 
+    setTags,
+    projetos,
+    setProjetos,
     adicionarTarefa,
     removerTarefa,
     editarTarefa,

@@ -5,6 +5,9 @@ const tags = [
   {
     nomeDaTag: "Estudo",
   },
+  {
+    nomeDaTag: "Lazer",
+  },
 ];
 
 export default tags;

@@ -1,5 +1,7 @@
 import { createContext, useEffect, useReducer, useState } from "react";
 import tarefas from "../mocks/tarefas";
+import projetosMock from "../mocks/projetos";
+import tagsMock from "../mocks/tags";
 import { taskReducer } from "../reducers/tasksReducer";
 
 export const TasksContext = createContext();
@@ -13,6 +15,8 @@ export const TasksProvider = ({ children }) => {
     status: false,
     opeName: "",
   });
+  const [ tags, setTags ] = useState(tagsMock)
+  const [ projetos, setProjetos ] = useState(projetosMock)
 
   return (
     <TasksContext.Provider
@@ -23,6 +27,10 @@ export const TasksProvider = ({ children }) => {
         setTaskTarget,
         operationSelect,
         setOperationSelect,
+        tags, 
+        setTags,
+        projetos,
+        setProjetos
       }}
     >
       {children}

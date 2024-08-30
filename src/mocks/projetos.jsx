@@ -5,6 +5,9 @@ const projetos = [
   {
     nomeDoProjeto: "calculo 2",
   },
+  {
+    nomeDoProjeto: "inglês",
+  },
 ];
 
 export default projetos;
