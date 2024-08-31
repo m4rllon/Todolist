@@ -6,7 +6,6 @@ import SecaoTarefas from "../../../components/secaoTarefas";
 import { useEffect, useState } from "react";
 import { useTaskContext } from "../../../hooks/useTaskContext";
 import FormTarefa from "../../../components/formTarefa";
-// import { generateId } from "../../../utils/generateId";
 
 export default function ListaTarefas() {
   const { tasks, taskTarget, setTaskTarget, operationSelect, setOperationSelect } =
@@ -28,7 +27,7 @@ export default function ListaTarefas() {
 
   const handleClickAddtask = () => {
     const newTask = {
-      'id': 0,
+      'id': Math.random(),
       'nome': "",
       'descricao': "",
       'dataTermino': "",
