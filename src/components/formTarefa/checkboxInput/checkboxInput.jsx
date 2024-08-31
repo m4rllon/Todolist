@@ -8,7 +8,9 @@ export default function CheckboxInput({tagName, addTaskSelect, tagType}){
 
   const {taskTarget} = useTaskContext()
 
-  const [defaultChecked, setDefaultChecked] = useState(taskTarget[param].some(prev => prev[atributo] === tagName))
+  const prevDefaultChecked = (taskTarget[param].length !== 0) ? taskTarget[param].some(prev => prev[atributo] === tagName) : false
+
+  const [defaultChecked, setDefaultChecked] = useState(prevDefaultChecked)
 
   const handleChange = () => {
     addTaskSelect(inputBox.current.checked, tagName, atributo)

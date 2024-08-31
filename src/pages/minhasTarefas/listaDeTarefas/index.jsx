@@ -6,9 +6,10 @@ import SecaoTarefas from "../../../components/secaoTarefas";
 import { useEffect, useState } from "react";
 import { useTaskContext } from "../../../hooks/useTaskContext";
 import FormTarefa from "../../../components/formTarefa";
+// import { generateId } from "../../../utils/generateId";
 
 export default function ListaTarefas() {
-  const { tasks, setTaskTarget, operationSelect, setOperationSelect } =
+  const { tasks, taskTarget, setTaskTarget, operationSelect, setOperationSelect } =
     useTaskContext();
 
   const data = formatDateWithMonthName();
@@ -24,6 +25,20 @@ export default function ListaTarefas() {
     });
     setTaskTarget(tarefaAlvo);
   };
+
+  const handleClickAddtask = () => {
+    const newTask = {
+      'id': 0,
+      'nome': "",
+      'descricao': "",
+      'dataTermino': "",
+      'dataInicio': "",
+      'tags': [],
+      'status': false,
+      'projetos': [],
+    }
+    operationDetect(newTask, "ADD")
+  }
 
   useEffect(() => {
     setTasksCompleted(tasks.filter((task) => task.status));
@@ -41,9 +56,11 @@ export default function ListaTarefas() {
           </h1>
         </div>
       </span>
-      <button className="text-start mx-5 my-2 flex justify-center items-center h-[40px] w-[200px] bg-purple-800 text-white font-medium rounded-lg">
+
+      <button onClick={handleClickAddtask} className="text-start mx-5 my-2 flex justify-center items-center h-[40px] w-[200px] bg-purple-800 text-white font-medium rounded-lg">
         Adicionar tarefa
       </button>
+      
       <span className="flex gap-5">
         <div>
           <SecaoTarefas
